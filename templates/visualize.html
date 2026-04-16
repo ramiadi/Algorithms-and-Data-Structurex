@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ algorithm|title }} Visualizer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>{{ algorithm|title }} Visualizer</h1>
+        <p>Watch the algorithm in action</p>
+    </header>
+
+    <div class="container">
+        <a href="/" class="back-link">← Back to Home</a>
+
+        <div class="visualizer-container">
+            <div class="canvas-section">
+                <canvas id="canvas" width="600" height="400"></canvas>
+            </div>
+
+            <div class="controls-section">
+                <h3>Controls</h3>
+
+                <div class="control-group">
+                    <label for="speed">Speed:</label>
+                    <input type="range" id="speed" min="1" max="100" value="50">
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-control">Start</button>
+                    <button class="btn-control">Pause</button>
+                    <button class="btn-control">Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>{{ algorithm|title }}</h3>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-label">Time Complexity</div>
+                    <div class="stat-value">-</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Space Complexity</div>
+                    <div class="stat-value">-</div>
+                </div>
+            </div>
+            <p>Algorithm description goes here.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Algorithm Visualizer. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const algorithm = '{{ algorithm }}';
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Simple canvas drawing example
+        function drawCanvas() {
+            ctx.fillStyle = '#f4f4f4';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#667eea';
+            ctx.fillRect(50, 50, 100, 100);
+
+            ctx.fillText('Algorithm: ' + algorithm, 10, 30);
+        }
+
+        // Initialize on page load
+        window.onload = function () {
+            drawCanvas();
+        };
+    </script>
+</body>
+
+</html>
