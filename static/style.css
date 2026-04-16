@@ -353,6 +353,21 @@ canvas {
   font-size: 1rem;
 }
 
+.controls-section input[type="text"] {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+.controls-section input[type="text"]:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.15);
+}
+
 .button-group {
   display: flex;
   flex-direction: column;

@@ -26,14 +26,23 @@
                 <h3>Controls</h3>
 
                 <div class="control-group">
+                    <label for="numberList">Enter a list of numbers:</label>
+                    <input type="text" id="numberList" placeholder="Example: 5, 2, 9, 1, 7">
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-control" type="button" onclick="loadList()">Load List</button>
+                </div>
+
+                <div class="control-group">
                     <label for="speed">Speed:</label>
                     <input type="range" id="speed" min="1" max="100" value="50">
                 </div>
 
                 <div class="button-group">
-                    <button class="btn-control">Start</button>
-                    <button class="btn-control">Pause</button>
-                    <button class="btn-control">Reset</button>
+                    <button class="btn-control" type="button">Start</button>
+                    <button class="btn-control" type="button">Pause</button>
+                    <button class="btn-control" type="button" onclick="resetCanvas()">Reset</button>
                 </div>
             </div>
         </div>
@@ -62,19 +71,57 @@
         const algorithm = '{{ algorithm }}';
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
+        const listInput = document.getElementById('numberList');
+        let numbers = [];
 
-        // Simple canvas drawing example
+        function parseList(value) {
+            return value
+                .split(',')
+                .map(item => item.trim())
+                .filter(item => item !== '')
+                .map(item => Number(item))
+                .filter(item => Number.isFinite(item));
+        }
+
         function drawCanvas() {
             ctx.fillStyle = '#f4f4f4';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#667eea';
-            ctx.fillRect(50, 50, 100, 100);
+            if (numbers.length === 0) {
+                ctx.fillStyle = '#667eea';
+                ctx.font = '20px Segoe UI';
+                ctx.fillText('Enter a list and click Load List', 140, 200);
+                return;
+            }
 
-            ctx.fillText('Algorithm: ' + algorithm, 10, 30);
+            const maxValue = Math.max(...numbers);
+            const barWidth = canvas.width / numbers.length;
+
+            numbers.forEach((value, index) => {
+                const barHeight = (value / maxValue) * 320;
+                const x = index * barWidth + 8;
+                const y = canvas.height - barHeight - 30;
+
+                ctx.fillStyle = '#667eea';
+                ctx.fillRect(x, y, barWidth - 16, barHeight);
+
+                ctx.fillStyle = '#333';
+                ctx.font = '14px Segoe UI';
+                ctx.fillText(String(value), x + 4, canvas.height - 10);
+            });
         }
 
-        // Initialize on page load
+        function loadList() {
+            numbers = parseList(listInput.value);
+            drawCanvas();
+        }
+
+        function resetCanvas() {
+            numbers = [];
+            listInput.value = '';
+            drawCanvas();
+        }
+
         window.onload = function () {
             drawCanvas();
         };
