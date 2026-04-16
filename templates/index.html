@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Algorithm Visualizer</h1>
+        <p>Visualizing Data Structures and Algorithms Through Animation</p>
+    </header>
+
+    <div class="container">
+        <!-- Basic Data Structures -->
+        <section class="category-section">
+            <h2 class="category-title">🧩 Basic Structures</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-thumbnail">📦</div>
+                    <div class="card-content">
+                        <div class="card-title">Array</div>
+                        <div class="card-description">Linear collection of elements</div>
+                        <div class="card-tags">
+                            <span class="tag">Basics</span>
+                            <span class="tag">Sequential</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/array" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">⛓️</div>
+                    <div class="card-content">
+                        <div class="card-title">Linked List</div>
+                        <div class="card-description">Sequential data with pointers</div>
+                        <div class="card-tags">
+                            <span class="tag">Sequential</span>
+                            <span class="tag">Pointer</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/linked_list" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">🔗</div>
+                    <div class="card-content">
+                        <div class="card-title">Hash Table</div>
+                        <div class="card-description">Fast key-value lookups</div>
+                        <div class="card-tags">
+                            <span class="tag">Hash</span>
+                            <span class="tag">Lookup</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/hash_table" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tree Structures -->
+        <section class="category-section">
+            <h2 class="category-title">🌳 Tree Structures</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-thumbnail">🌳</div>
+                    <div class="card-content">
+                        <div class="card-title">Binary Search Tree</div>
+                        <div class="card-description">Hierarchical ordered structure</div>
+                        <div class="card-tags">
+                            <span class="tag">Tree</span>
+                            <span class="tag">Search</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/bst" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">⛈️</div>
+                    <div class="card-content">
+                        <div class="card-title">Binary Heap</div>
+                        <div class="card-description">Priority queue implementation</div>
+                        <div class="card-tags">
+                            <span class="tag">Heap</span>
+                            <span class="tag">Priority</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/heap" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graph Structure -->
+        <section class="category-section">
+            <h2 class="category-title">🔄 Graph Structures</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-thumbnail">🔄</div>
+                    <div class="card-content">
+                        <div class="card-title">Graph</div>
+                        <div class="card-description">Nodes connected by edges</div>
+                        <div class="card-tags">
+                            <span class="tag">Graph</span>
+                            <span class="tag">Network</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/graph" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sorting Algorithms -->
+        <section class="category-section">
+            <h2 class="category-title">📈 Sorting</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-thumbnail">🫧</div>
+                    <div class="card-content">
+                        <div class="card-title">Bubble Sort</div>
+                        <div class="card-description">Simple comparison sort</div>
+                        <div class="card-tags">
+                            <span class="tag">Sort</span>
+                            <span class="tag">Comparison</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/bubble_sort" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">⚡</div>
+                    <div class="card-content">
+                        <div class="card-title">Quick Sort</div>
+                        <div class="card-description">Fast divide-and-conquer</div>
+                        <div class="card-tags">
+                            <span class="tag">Sort</span>
+                            <span class="tag">Fast</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/quick_sort" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">🔀</div>
+                    <div class="card-content">
+                        <div class="card-title">Merge Sort</div>
+                        <div class="card-description">Stable divide-and-conquer</div>
+                        <div class="card-tags">
+                            <span class="tag">Sort</span>
+                            <span class="tag">Stable</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/merge_sort" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">🎯</div>
+                    <div class="card-content">
+                        <div class="card-title">Selection Sort</div>
+                        <div class="card-description">Find minimum element</div>
+                        <div class="card-tags">
+                            <span class="tag">Sort</span>
+                            <span class="tag">Simple</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/selection_sort" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">📍</div>
+                    <div class="card-content">
+                        <div class="card-title">Insertion Sort</div>
+                        <div class="card-description">Build sorted array</div>
+                        <div class="card-tags">
+                            <span class="tag">Sort</span>
+                            <span class="tag">Incremental</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/insertion_sort" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">🏔️</div>
+                    <div class="card-content">
+                        <div class="card-title">Heap Sort</div>
+                        <div class="card-description">Heap-based sorting</div>
+                        <div class="card-tags">
+                            <span class="tag">Sort</span>
+                            <span class="tag">Heap</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/heap_sort" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graph Algorithms -->
+        <section class="category-section">
+            <h2 class="category-title">🛤️ Graph Algorithms</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-thumbnail">🔍</div>
+                    <div class="card-content">
+                        <div class="card-title">Graph Traversal</div>
+                        <div class="card-description">DFS, BFS exploration</div>
+                        <div class="card-tags">
+                            <span class="tag">Graph</span>
+                            <span class="tag">Traversal</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/graph_traversal" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">📍</div>
+                    <div class="card-content">
+                        <div class="card-title">Shortest Path</div>
+                        <div class="card-description">Dijkstra, Bellman-Ford</div>
+                        <div class="card-tags">
+                            <span class="tag">Graph</span>
+                            <span class="tag">Pathfinding</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/shortest_path" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">🌲</div>
+                    <div class="card-content">
+                        <div class="card-title">Min Spanning Tree</div>
+                        <div class="card-description">Prim, Kruskal algorithms</div>
+                        <div class="card-tags">
+                            <span class="tag">Graph</span>
+                            <span class="tag">Tree</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/mst" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Algorithms -->
+        <section class="category-section">
+            <h2 class="category-title">🎯 Advanced Algorithms</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-thumbnail">♻️</div>
+                    <div class="card-content">
+                        <div class="card-title">Recursion</div>
+                        <div class="card-description">Tree and DAG visualization</div>
+                        <div class="card-tags">
+                            <span class="tag">Recursion</span>
+                            <span class="tag">Advanced</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/recursion" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-thumbnail">🎯</div>
+                    <div class="card-content">
+                        <div class="card-title">Dynamic Programming</div>
+                        <div class="card-description">Optimization problems</div>
+                        <div class="card-tags">
+                            <span class="tag">DP</span>
+                            <span class="tag">Optimization</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="/visualize/dp" class="btn-small">Visualize</a>
+                            <button class="btn-small">Train</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Algorithm Visualizer. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
