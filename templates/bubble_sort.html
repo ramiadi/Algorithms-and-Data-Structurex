@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/bubble_sort.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Bubble sort</h1>
+        <div class="input-area">
+            <input type="text" id="array-input" value="5, 2, 8, 1, 9, 3" placeholder="e.g. 5, 2, 8, 1, 9, 3">
+            <button class="btn-visualize" onclick="visualize()">Visualize</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="array-container" id="array-container">
+            <div class="card in-place">1</div>
+            <div class="card in-place">2</div>
+            <div class="card in-place">3</div>
+            <div class="card in-place">5</div>
+            <div class="card in-place">8</div>
+            <div class="card in-place">9</div>
+        </div>
+        <p class="sorted-label" id="sorted-label">Sorted: 1, 2, 3, 5, 8, 9.</p>
+    </main>
+
+    <div class="control-bar">
+        <div class="control-bar-inner">
+            <div class="controls-row">
+
+                <div class="control-buttons">
+                    <!-- Reset -->
+                    <button class="btn-control" title="Reset">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" />
+                        </svg>
+                    </button>
+                    <!-- Step back -->
+                    <button class="btn-control" title="Step back">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z" />
+                        </svg>
+                    </button>
+                    <!-- Play / Pause -->
+                    <button class="btn-control btn-play" title="Play">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </button>
+                    <!-- Step forward -->
+                    <button class="btn-control" title="Step forward">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="speed-control">
+                    <span class="speed-label">SLOW</span>
+                    <input type="range" class="speed-slider" min="1" max="10" value="8">
+                    <span class="speed-label">FAST</span>
+                </div>
+
+                <div class="step-counter" id="step-counter">38 / 38</div>
+
+                <button class="btn-show-code">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                    Show code
+                </button>
+
+            </div>
+        </div>
+
+        <div class="legend">
+            <span class="legend-item comparing">
+                <span class="legend-dot"></span>
+                comparing
+            </span>
+            <span class="legend-item swapping">
+                <span class="legend-dot"></span>
+                swapping
+            </span>
+            <span class="legend-item in-place">
+                <span class="legend-dot"></span>
+                in place
+            </span>
+        </div>
+    </div>
+
+    <script>
+        async function visualize() {
+            const input = document.getElementById('array-input').value;
+            const nums = input.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n));
+
+            const res = await fetch('/api/bubble_sort', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ array: nums })
+            });
+            const steps = await res.json();
+
+            const container = document.getElementById('array-container');
+            let stepIndex = 0;
+
+            function renderStep() {
+                if (stepIndex >= steps.length) {
+                    const last = steps[steps.length - 1].array;
+                    container.innerHTML = last.map(n => `<div class="card in-place">${n}</div>`).join('');
+                    document.getElementById('sorted-label').textContent = `Sorted: ${last.join(', ')}.`;
+                    return;
+                }
+
+                const step = steps[stepIndex];
+                container.innerHTML = step.array.map((n, i) => {
+                    let cls = 'in-place';
+                    if (step.comparing.includes(i)) cls = step.swapped ? 'swapping' : 'comparing';
+                    return `<div class="card ${cls}">${n}</div>`;
+                }).join('');
+
+                document.getElementById('step-counter').textContent = `${stepIndex + 1} / ${steps.length}`;
+                stepIndex++;
+                const sliderVal = parseInt(document.querySelector('.speed-slider').value);
+                const delay = 1500 - (sliderVal - 1) * 155;
+                setTimeout(renderStep, delay);
+            }
+
+            renderStep();
+        }
+    </script>
+
+</body>
+
+</html>
